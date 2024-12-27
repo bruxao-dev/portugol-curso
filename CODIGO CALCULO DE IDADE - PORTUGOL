@@ -1,0 +1,93 @@
+programa {
+
+  funcao logico ehBissexto(inteiro ano){
+    se ((ano % 4 == 0 e ano % 100  !=0) ou (ano %  400 ==0)){
+      retorne verdadeiro
+    }
+    retorne falso
+  }
+
+
+  funcao inicio() {
+
+    //nome
+    cadeia nome
+    //data nascimento
+    inteiro dia, mes, ano_nascimento, ano_atual, idade 
+
+    ano_atual = 2024
+
+    // primeira interaçao
+    escreva("ola, digite seu nome: ")
+    leia(nome)
+    escreva("Seja bem vindo! ", nome, ", vamos calcular sua idade.\n")
+
+    //dia
+    escreva("\nDigite o dia do seu nascimento: ")
+    leia(dia)
+    se (dia < 1 ou dia >31){
+      escreva("Dia invalido! Encerrando o programa.")
+      retorne
+    }
+
+    //mes
+    escreva("Agora digite o mes que voce nasceu: ")
+    leia(mes)
+    se (mes <1 ou mes >12){
+      escreva("Mes invalido! Encerrando o programa ")
+      retorne
+    }
+
+    //ano 
+    escreva("Por fim digite seu ano de nascimento: ")
+    leia(ano_nascimento)
+    se (ano_nascimento > ano_atual){
+      escreva("Ano invalido! voncê ainda não nasceu.")
+      retorne
+    }
+
+    //validação do dia do mes
+
+    se(mes == 1 ou mes == 3 ou mes == 5 ou mes == 7 ou mes == 8 ou mes == 10 ou mes == 12) {
+      se (dia > 31) {
+        escreva("Dia inválido! este mês tem no máximo 31 dias.")
+      }
+    }senao se (mes == 4 ou mes == 6 ou mes == 9 ou mes == 11) {
+      se (dia > 30) {
+          escreva("Dia Inválido! Este mês tem no máixmo 30 dias.")
+      }
+    }senao se (mes == 2) {
+      se (eHbissexto(ano_nascimento)){
+        se(dia > 29) {
+          escreva("Dia Inválido! Fevereiro tem no máximo 29 dias neste ano bissexto.")
+          retorne
+        }
+      }senao{
+        se(dia > 28) {
+          escreva("Dia inválido! Fevereiro tem no máximo 28 dias neste ano")
+          retorne
+        }
+      }
+    }
+
+    // confirmando a data
+
+    escreva("\nVocê nasceu no dia ", dia,", do mês ", mes,", no ano de ", ano_nascimento, ".")
+
+    //calculo
+
+    idade = ano_atual - ano_nascimento
+
+    //verificação de idade
+
+    se(mes == 12 e dia > 27){ //  ajuste para da data atual
+      idade = idade - 1
+    }
+    
+    //finalização
+
+    escreva("\nEntão voce tem ", idade, " anos de idade")
+    escreva("\nPrograma Finalizado. Ate mais!")
+    
+  }
+}
