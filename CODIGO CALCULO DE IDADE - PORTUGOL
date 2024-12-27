@@ -1,5 +1,5 @@
 programa {
-
+  //função que calcula ano bissexto
   funcao logico ehBissexto(inteiro ano){
     se ((ano % 4 == 0 e ano % 100  !=0) ou (ano %  400 ==0)){
       retorne verdadeiro
